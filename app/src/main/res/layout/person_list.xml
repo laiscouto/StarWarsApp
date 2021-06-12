@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp"
+    android:layout_margin="15dp"
+    android:foreground="?selectableItemBackground"
+    android:clickable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:focusable="true">
+
+    <LinearLayout
+        android:background="@drawable/space"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"/>
+
+    <TextView
+        android:padding="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:textColor="@color/white"
+        android:text="NAME :"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/name"
+        android:fontFamily="monospace"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:layout_marginStart="2dp"
+        android:padding="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:textColor="@color/white"
+        android:text="HEIGHT : "
+        android:layout_marginTop="27dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/heigth"
+        android:fontFamily="monospace"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="27dp"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:padding="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="49dp"
+        android:textColor="@color/white"
+        android:text="MASS :"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/mass"
+        android:fontFamily="monospace"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="49dp"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:layout_marginStart="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="GENDER :"
+        android:padding="2dp"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/gender"
+        android:fontFamily="monospace"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="69dp"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <ImageView
+        android:layout_width="37dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="4dp"
+        android:layout_gravity="end|bottom"
+        android:background="@color/white"
+        android:src="@drawable/ic_favorit" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="29dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="41dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_nao_fav"/>
+
+
+
+</androidx.cardview.widget.CardView>

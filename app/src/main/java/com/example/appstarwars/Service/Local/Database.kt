@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase
 
 /*class Database {
 
-    @Database(entities = [PriorityModel::class], version = 1)
+    @Database(entities = [PersonModel::class], version = 1)
     abstract class Database : RoomDatabase() {
 
         companion object {
