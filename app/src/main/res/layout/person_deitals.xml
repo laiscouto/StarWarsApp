@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/space"
+    android:id="@+id/id"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:textColor="#FFC107"
+        android:textSize="35sp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/planets"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLANET : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/planet"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/planets"
+        app:layout_constraintTop_toBottomOf="@id/name"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPECIE : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/planet"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        />
+
+    <TextView
+        android:id="@+id/specie"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/species"
+        app:layout_constraintTop_toBottomOf="@id/name"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/heigths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HEIGHT : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/planets"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/heigth"
+        android:textSize="20sp"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/planet"
+        app:layout_constraintStart_toEndOf="@id/heigths"
+        app:layout_constraintTop_toBottomOf="@id/planet"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/masss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MASS : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heigths"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/mass"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/heigth"
+        app:layout_constraintStart_toEndOf="@id/masss"
+        app:layout_constraintTop_toBottomOf="@id/heigth"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/genders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GENDER : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/masss"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/gender"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/mass"
+        app:layout_constraintStart_toEndOf="@id/genders"
+        app:layout_constraintTop_toBottomOf="@id/mass"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/birth_years"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIRTHEY YEAR : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/genders"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/birth_year"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/heigth"
+
+        app:layout_constraintTop_toBottomOf="@id/gender"
+        android:layout_marginStart="30dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/hair_colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HAIR COLOR : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birth_years"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/hair_color"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/heigth"
+        app:layout_constraintTop_toBottomOf="@id/birth_year"
+        android:layout_marginStart="30dp"/>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/eye_colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EYE COLOR : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hair_colors"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/eye_color"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/heigth"
+        app:layout_constraintStart_toEndOf="@id/birth_years"
+        app:layout_constraintTop_toBottomOf="@id/hair_color"
+        android:layout_marginStart="30dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/skin_colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SKIN COLOR : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eye_colors"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/skin_color"
+        android:textColor="#FFC107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/heigth"
+        app:layout_constraintStart_toEndOf="@id/skin_colors"
+        app:layout_constraintTop_toBottomOf="@id/eye_color"
+        android:layout_marginStart="30dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

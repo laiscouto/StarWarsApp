@@ -2,13 +2,20 @@ package com.example.appstarwars.View.Adapter.ViewHolder
 
 import android.view.View
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appstarwars.R
 import com.example.appstarwars.Service.Model.PersonModel
+import kotlinx.android.synthetic.main.person_list.view.*
+import kotlin.reflect.KFunction2
 
-class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class PersonViewHolder(itemView: View, private val onClickItem: KFunction2<CardView, PersonModel, Unit>) : RecyclerView.ViewHolder(itemView) {
 
     fun bind (person: PersonModel){
+        val cardView = itemView.findViewById<CardView>(R.id.cardPerson)
+         itemView.setOnClickListener{
+             onClickItem(cardView, person)
+         }
         val textname = itemView.findViewById<TextView>(R.id.name)
         textname.text = person.name
         val height = itemView.findViewById<TextView>(R.id.heigth)
@@ -17,5 +24,6 @@ class PersonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         mass.text = person.mass.toString()
         val gender = itemView.findViewById<TextView>(R.id.gender)
         gender.text = person.gender
+
     }
 }

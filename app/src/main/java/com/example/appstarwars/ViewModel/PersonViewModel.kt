@@ -21,6 +21,7 @@ class PersonViewModel(private val personService: PersonRepository): ViewModel() 
 
     private fun handleSuccess(list: List<PersonModel>){
         state.postValue(ViewState.Success(list))
+
     }
 
     private fun handleFailure(){

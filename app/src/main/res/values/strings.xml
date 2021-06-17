@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AppStarWars</string>
     <string name="person">Personagem</string>
+    <string name="pesquisa">Pesquisa</string>
 </resources>

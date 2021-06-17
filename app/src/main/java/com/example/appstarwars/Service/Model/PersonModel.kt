@@ -11,4 +11,13 @@ data class PersonModel (
     val mass : Int,
     @SerializedName("gender")
     val gender: String,
-)
+    @SerializedName("hair_color")
+    val hair_color : String,
+    @SerializedName("skin_color")
+    val skin_color: String,
+    @SerializedName("eye_color")
+    val eye_color: String,
+    @SerializedName("birth_year")
+    val birth_year: String,
+) {
+}
