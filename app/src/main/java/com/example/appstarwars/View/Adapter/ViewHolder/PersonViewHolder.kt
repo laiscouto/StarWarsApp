@@ -6,7 +6,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appstarwars.R
 import com.example.appstarwars.Service.Model.PersonModel
-import kotlinx.android.synthetic.main.person_list.view.*
 import kotlin.reflect.KFunction2
 
 class PersonViewHolder(itemView: View, private val onClickItem: KFunction2<CardView, PersonModel, Unit>) : RecyclerView.ViewHolder(itemView) {

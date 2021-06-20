@@ -11,6 +11,7 @@ import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_HEIGH
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_MASS
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_NAME
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.SKIN_COLOR
+import com.example.appstarwars.Service.Repository.PlanetsRepository
 import kotlinx.android.synthetic.main.person_deitals.*
 
 class InfoActivity : AppCompatActivity() {
@@ -23,12 +24,13 @@ class InfoActivity : AppCompatActivity() {
     private val skin by lazy { intent.extras?.getString(SKIN_COLOR) }
     private val birthey by lazy { intent.extras?.getString(BIRTHEY_COLOR) }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.person_deitals)
 
         personInfo()
+
+
 
 
     }

@@ -1,8 +1,12 @@
 package com.example.appstarwars.View
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.SearchView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,7 +31,7 @@ class MainActivity() : AppCompatActivity() {
 
     private val personRepository = PersonRepository()
     private val viewModel = PersonViewModel(personRepository)
-    private val personAdapter: PersonAdapter = PersonAdapter(::clickCard)
+    private val personAdapter = PersonAdapter(::clickCard)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,26 @@ class MainActivity() : AppCompatActivity() {
         observer()
 
         viewModel.fetchPerson()
+
+        country_search.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
+                androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                personAdapter.filter.filter(newText)
+                return false
+            }
+
+        })
+
+        val search = findViewById<ImageView>(R.id.search_mag_icon)
+        search.setColorFilter(Color.WHITE)
+        val cancelIcon = findViewById<ImageView>(R.id.search_close_btn)
+        cancelIcon.setColorFilter(Color.WHITE)
+        val textView = findViewById<TextView>(R.id.search_src_text)
+        textView.setTextColor(Color.WHITE)
     }
 
     fun clickCard(onClickItem: CardView, list: PersonModel) {
@@ -51,8 +75,8 @@ class MainActivity() : AppCompatActivity() {
             bundle.putString(SKIN_COLOR , list.skin_color)
             bundle.putString(EYE_COLOR, list.skin_color)
             bundle.putString(BIRTHEY_COLOR, list.birth_year)
-
-            putExtras(bundle)}
+            putExtras(bundle)
+        }
 
         startActivity(intent)
     }
