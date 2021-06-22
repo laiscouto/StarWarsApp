@@ -3,18 +3,18 @@ package com.example.appstarwars.Service.Remote
 import com.example.appstarwars.Service.Model.*
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PersonService {
 
     @GET("people")
-    fun personService() : Call<PersonListModel>
+    suspend fun personService() : PersonListModel
 
     @GET("planets")
-    fun planetsService() : Call<PlanetListModel>
+    suspend fun planetsService() : PlanetListModel
 
     @GET("species")
-    fun speciesService() : Call<SpeciesListModel>
-
-
+    suspend fun speciesService() : SpeciesListModel
 
 }

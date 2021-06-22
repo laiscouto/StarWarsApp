@@ -1,19 +1,22 @@
 package com.example.appstarwars.View.Adapter.ViewHolder
 
+import android.graphics.Color
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appstarwars.R
 import com.example.appstarwars.Service.Model.PersonModel
+import kotlin.reflect.KFunction
 import kotlin.reflect.KFunction2
 
-class PersonViewHolder(itemView: View, private val onClickItem: KFunction2<CardView, PersonModel, Unit>) : RecyclerView.ViewHolder(itemView) {
+class PersonViewHolder(itemView: View, private val onClickItem: (PersonModel)-> Unit) : RecyclerView.ViewHolder(itemView) {
 
     fun bind (person: PersonModel){
         val cardView = itemView.findViewById<CardView>(R.id.cardPerson)
          itemView.setOnClickListener{
-             onClickItem(cardView, person)
+             onClickItem(person)
          }
         val textname = itemView.findViewById<TextView>(R.id.name)
         textname.text = person.name

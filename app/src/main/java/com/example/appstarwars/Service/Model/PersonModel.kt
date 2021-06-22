@@ -1,6 +1,7 @@
 package com.example.appstarwars.Service.Model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class PersonModel (
     @SerializedName("name")
@@ -19,5 +20,9 @@ data class PersonModel (
     val eye_color: String,
     @SerializedName("birth_year")
     val birth_year: String,
-) {
-}
+    @SerializedName("species")
+    val species: List<String>,
+    @SerializedName("homeworld")
+    val homeworld: String,
+
+): Serializable

@@ -17,6 +17,8 @@ class Constantes private constructor() {
         const val EYE_COLOR = "eye"
         const val BIRTHEY_COLOR = "BIRTHEY"
 
+        const val KEY_PERSON = "person"
+
     }
 
 }

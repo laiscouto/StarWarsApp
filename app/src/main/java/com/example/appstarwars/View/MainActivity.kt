@@ -4,9 +4,11 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,20 +20,24 @@ import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_GENDE
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_HEIGHT
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_MASS
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_NAME
+import com.example.appstarwars.Service.Constantes.Constantes.Companion.KEY_PERSON
 import com.example.appstarwars.Service.Constantes.Constantes.Companion.SKIN_COLOR
 import com.example.appstarwars.Service.Model.PersonModel
 import com.example.appstarwars.Service.Repository.PersonRepository
 import com.example.appstarwars.View.Adapter.PersonAdapter
 import com.example.appstarwars.ViewModel.PersonViewModel
-import com.example.appstarwars.ViewModel.ViewState
+import com.example.appstarwars.ViewModel.PersonViewState
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity() : AppCompatActivity() {
+class MainActivity() : AppCompatActivity(), View.OnClickListener  {
 
     private val personRepository = PersonRepository()
     private val viewModel = PersonViewModel(personRepository)
     private val personAdapter = PersonAdapter(::clickCard)
+
+    var page = 1
+    var limit = 9
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +48,47 @@ class MainActivity() : AppCompatActivity() {
         observer()
 
         viewModel.fetchPerson()
+        search()
+        handlerColorFav()
 
+
+
+    }
+
+    /*fun getPage(){
+        val next : Int = (page-1) * limit
+        val previous: Int = (page) * limit
+
+        for ( i in next..previous) {
+
+        }
+
+    }*/
+
+    fun handlerSucces(list: List<PersonModel>) {
+        personAdapter.updateList(list)
+
+    }
+
+    fun observer() {
+        viewModel.observerState().observe(this, Observer {
+            when (it) {
+                is PersonViewState.Loading -> {
+                    Toast.makeText(this, "AGUARDE", Toast.LENGTH_SHORT).show()
+                }
+                is PersonViewState.Success -> {
+                    handlerSucces(it.list)
+                }
+                is Error -> {
+                    Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+
+    private fun search(){
         country_search.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
-                androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -55,51 +99,43 @@ class MainActivity() : AppCompatActivity() {
             }
 
         })
+    }
 
+    private fun handlerColorFav(){
+       /* val favorite = findViewById<ImageView>(R.id.ic_favorit)
+        favorite.setColorFilter(Color.WHITE)
+        val nFavorit = findViewById<ImageView>(R.id.ic_nao_fav)
+        nFavorit.setColorFilter(Color.WHITE)
+
+        favorite.setOnClickListener {
+            favorite.setColorFilter(Color.RED)
+        }
+
+        nFavorit.setOnClickListener {
+            nFavorit.setColorFilter(Color.RED)
+        }
+       Color search*/
         val search = findViewById<ImageView>(R.id.search_mag_icon)
         search.setColorFilter(Color.WHITE)
         val cancelIcon = findViewById<ImageView>(R.id.search_close_btn)
         cancelIcon.setColorFilter(Color.WHITE)
         val textView = findViewById<TextView>(R.id.search_src_text)
         textView.setTextColor(Color.WHITE)
+
     }
 
-    fun clickCard(onClickItem: CardView, list: PersonModel) {
+    private fun clickCard(list: PersonModel) {
         val intent = Intent(this, InfoActivity::class.java).apply {
             val bundle = Bundle()
-            bundle.putString(KEY_NAME, list.name)
-            bundle.putString(KEY_HEIGHT, list.height.toString())
-            bundle.putString(KEY_MASS, list.mass.toString())
-            bundle.putString(KEY_GENDER, list.gender)
-            bundle.putString(HAIR_COLOR, list.hair_color)
-            bundle.putString(SKIN_COLOR , list.skin_color)
-            bundle.putString(EYE_COLOR, list.skin_color)
-            bundle.putString(BIRTHEY_COLOR, list.birth_year)
+            bundle.putSerializable(KEY_PERSON, list)
             putExtras(bundle)
         }
 
         startActivity(intent)
     }
 
-    fun handlerSucces(list: List<PersonModel>) {
-        personAdapter.updateList(list)
-
-    }
-
-    fun observer() {
-        viewModel.observerState().observe(this, Observer {
-            when (it) {
-                is ViewState.Loading -> {
-
-                }
-                is ViewState.Success -> {
-                    handlerSucces(it.list)
-                }
-                is Error -> {
-
-                }
-            }
-        })
+    override fun onClick(v: View) {
+       
     }
 
 }

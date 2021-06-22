@@ -13,10 +13,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.reflect.KFunction2
 
-class PersonAdapter(private val onClickItem: KFunction2<CardView, PersonModel, Unit>) : RecyclerView.Adapter<PersonViewHolder>(), Filterable {
+class PersonAdapter(private val onClickItem: (PersonModel)-> Unit) : RecyclerView.Adapter<PersonViewHolder>(), Filterable {
 
-    private var personlist: List<PersonModel> = arrayListOf()
-    private var personlistfilter: List<PersonModel> = arrayListOf()
+    private var personlist: List<PersonModel> = ArrayList()
+    private var personlistfilter: List<PersonModel> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.person_list, parent, false)
